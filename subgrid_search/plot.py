@@ -12,8 +12,6 @@ class Plot:
         self.grid = grid
 
         self.pose = self.grid.pose
-        # self.path = list()
-        # self.path.append(self.pose[:])
         print("pose: " + str(self.pose))
 
         self.fig, self.axes = plt.subplots()
@@ -23,7 +21,6 @@ class Plot:
         self.data = self.grid.get_weights() #np.zeros((self.grid.grid_size, self.grid.grid_size))
         self.data[self.pose[0]][self.pose[1]] = 1
         self.axes.imshow(self.data)
-        # plt.imshow(self.data)
 
         self.axes.set_xticklabels(indeces)
         self.axes.set_yticklabels(indeces)
@@ -63,18 +60,16 @@ class Plot:
             print("Grid is covered!")
             print("Path: {}".format(self.grid.path))
             return
+            
         self.pose = pose
         self.grid.pose = pose
         print("pose: " + str(self.pose))
 
-        # self.path.append(self.pose[:])
         self.draw_path(self.grid.path)
         self.grid.update_neighbor_weights()
         self.data = self.grid.get_weights()
         self.fill_data()
 
-        # self.fig.canvas.draw()
-        # self.fig.canvas.flush_events()
         plt.draw()
 
 def main():
