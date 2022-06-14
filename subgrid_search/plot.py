@@ -8,7 +8,7 @@ import matplotlib.animation as animation
 from subgrid import Grid, Cell
 
 class Plot:
-    def __init__(self, grid: Grid) -> None:
+    def __init__(self, grid):
         self.grid = grid
 
         self.pose = self.grid.pose

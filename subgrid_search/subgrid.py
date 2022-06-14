@@ -5,7 +5,7 @@ import math
 import random
 import numpy as np
 from numpy.core.defchararray import translate
-from typing import List
+# from typing import List
 from maps import MapsWeights
 
 class Cell:
@@ -21,10 +21,10 @@ class Grid:
     MAP_SIZE = 3500 # 25 meters = 2500 cm
     MIN_DISTANCE = MAP_SIZE * MAP_SIZE
     MIN_WEIGHT = -1
-    def __init__(self, cell_size=500, map_no=0) -> None:
+    def __init__(self, cell_size=500, map_no=0):
         self.cell_size = cell_size # cm
-        self.grid_size = math.ceil(Grid.MAP_SIZE / self.cell_size)
-        self.origin_ind = math.floor(self.grid_size / 2)
+        self.grid_size = int(math.ceil(Grid.MAP_SIZE / self.cell_size))
+        self.origin_ind = int(math.floor(self.grid_size / 2))
 
         self.map_no = map_no
 
